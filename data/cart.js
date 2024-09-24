@@ -1,4 +1,6 @@
-export let cart=[
+export let cart= localStorage.getItem("cart")? JSON.parse(localStorage.getItem("cart")): //if there is a cart in local storage, get it else get the default cart
+
+[
   {
     productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
     quantity: 2,
@@ -8,6 +10,10 @@ export let cart=[
     quantity: 1,
   }
 ]; 
+
+const saveToStorage= ()=>{
+  localStorage.setItem("cart", JSON.stringify(cart)); //save the cart to local storage
+}
 
 export const addtoCart=(productId)=>{ 
   let matchingItem;
@@ -26,7 +32,10 @@ export const addtoCart=(productId)=>{
           quantity: 1
         });
       };
+  saveToStorage();
 }
+
+
 
 export const deleteFromCart=(productId)=>{
   const newCart=[];
@@ -36,4 +45,5 @@ export const deleteFromCart=(productId)=>{
     };
   });
   cart=newCart;
+  saveToStorage();
 };
