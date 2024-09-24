@@ -1,4 +1,5 @@
 import {cart} from "../data/cart.js"; //.. means go up one level in the directory structure
+import {products} from "../data/products.js";
 let productsHTML=""; //creating a variable to store the html of all the products
 
 //looping through the products
