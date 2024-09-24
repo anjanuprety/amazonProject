@@ -106,7 +106,14 @@ document.querySelectorAll('.js-add-to-cart')
           productId: productId,  //if the product is not in the cart, add it to the cart
           quantity: 1
         });
-        console.log(cart);
       };
+
+      let cartQuantity=0;
+        cart.forEach((item)=>{
+          cartQuantity+=item.quantity; //calculating the total quantity of items in the cart
+        });
+
+        document.querySelector('.js-cart-quantity').textContent=cartQuantity; //displaying the total quantity of items in the cart
+
     }); 
   });
