@@ -1,5 +1,7 @@
 import {cart,addtoCart} from "../data/cart.js"; //.. means go up one level in the directory structure
 import {products} from "../data/products.js";
+import {formatCurrency} from "./utils/money.js";
+
 let productsHTML=""; //creating a variable to store the html of all the products
 
 //looping through the products
@@ -24,7 +26,7 @@ products.forEach((product) => {
       </div>
 
       <div class="product-price">
-        ${(product.priceCents / 100).toFixed(2)}
+        ${formatCurrency(product.priceCents)}
       </div>
 
       <div class="product-quantity-container">
