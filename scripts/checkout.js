@@ -2,6 +2,10 @@ import {cart,deleteFromCart} from "../data/cart.js";
 import {products} from "../data/products.js";
 import {formatCurrency} from "./utils/money.js";
 
+const today=dayjs();
+const deliveryDate= today.add(7,"day").format("dddd, MMM D");
+console.log(deliveryDate);
+
 let cartSummaryHTML="";
 
 cart.forEach((cartItem)=>{
